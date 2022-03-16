@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "type": "module",
+  "homepage": "https://rbell6.github.io/soccer-app",
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack build --mode=production"
