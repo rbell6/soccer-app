@@ -1,4 +1,8 @@
+import { isProdEnv } from '../utils.js';
 const API_TOKEN = '00fe213f662d47e8833933c63de30f10';
+const BASE_URL = 'https://api.football-data.org/v1';
+const BASE_URL_DEV = 'http://localhost:9000/api';
+
 /**
  * example of a call to the API
  * https://api.football-data.org/v2/competitions?plan=TIER_ONE
@@ -31,9 +35,8 @@ const API_TOKEN = '00fe213f662d47e8833933c63de30f10';
  * @param {string} path
  * 
  * */ 
-
 export function footballData(path, params = {}) {
-	const url = new URL(`http://localhost:9000/api${path}`);
+	const url = new URL(`${isProdEnv() ? BASE_URL : BASE_URL_DEV}${path}`);
 	url.search = new URLSearchParams(params).toString();
 	console.log('footballData', url);
 	return fetch(url, {
