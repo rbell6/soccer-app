@@ -24,7 +24,12 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@adobe/react-spectrum": "^3.16.4",
+    "@spectrum-icons/illustrations": "^3.2.5",
+    "@spectrum-icons/workflow": "^3.2.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-query": "^3.34.16",
+    "react-router-dom": "^6.2.2"
   }
 }
