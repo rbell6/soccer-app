@@ -2,6 +2,7 @@ import path from 'path';
 import { cwd } from 'process';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+/** @type { import('webpack').Configuration } */
 export default {
 	entry: './src/index.jsx',
 	output: {
@@ -10,7 +11,18 @@ export default {
 	},
 	devServer: {
 		compress: true,
-		port: 9000
+		port: 9000,
+		open: true,
+		proxy: {
+			'/api': {
+				target: 'https://api.football-data.org/v2',
+				secure: false,
+				changeOrigin: true,
+				pathRewrite: {
+					'^/api': ''
+				}
+			},
+		}
 	},
 	devtool: 'source-map',
 	plugins: [
